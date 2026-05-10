@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:anakin.io)",
+      "Bash(curl *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(type\\(d\\).__name__, list\\(d.keys\\(\\)\\) if isinstance\\(d,dict\\) else 'is array'\\); acts=d.get\\('actions',[]\\); print\\('actions count:', len\\(acts\\)\\); [print\\(a.get\\('id'\\), a.get\\('name'\\), a.get\\('slug'\\)\\) for a in acts[:5]]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(json.dumps\\(a, indent=2\\)\\) for a in d['actions'] if 'search' in \\(a.get\\('name',''\\) + a.get\\('slug',''\\)\\).lower\\(\\)]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(json.dumps\\(a, indent=2\\)\\) for a in d['actions'] if 'search' in \\(a.get\\('name',''\\) + a.get\\('action_id',''\\)\\).lower\\(\\)]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('keys:', list\\(d.keys\\(\\)\\)\\); r=d.get\\('results',[]\\); print\\('results count:', len\\(r\\)\\); print\\('first result keys:', list\\(r[0].keys\\(\\)\\) if r else 'none'\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('keys:', list\\(d.keys\\(\\)\\)\\); r=d.get\\('results',[]\\); print\\('count:', len\\(r\\)\\)\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(npm --prefix /Users/ramya/build-with-anakin run dev)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('Score:', d['validationScore']\\); print\\('Verdict:', d['oneLineVerdict']\\); print\\('Competitors:', len\\(d['competitors']\\)\\); print\\('Reddit posts:', d['evidence']['redditDiscussionsCount']\\); print\\('YouTube videos:', d['evidence']['youtubeVideosCount']\\); print\\('Trend momentum:', d['marketDemand']['momentum']\\); print\\('Timeline points:', len\\(d['marketDemand']['timeline']\\)\\)\")"
+    ]
+  }
+}
