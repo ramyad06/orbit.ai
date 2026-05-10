@@ -8,6 +8,29 @@ Enter a startup idea, MVP concept, or prototype description and orbit.ai automat
 
 ---
 
+## Tech stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 App Router, TypeScript |
+| Styling | Tailwind CSS v4, Framer Motion |
+| Data & intelligence | [Anakin API](https://anakin.io) |
+| Scoring | Algorithmic — no LLM in the critical path |
+| Deployment | Vercel |
+
+**Anakin API — Wires used**
+
+orbit.ai uses four Anakin integrations, all running in parallel per request:
+
+- **Google Trends Wire** (`gt_interest_over_time`, `gt_related_queries`) — fetches a 12-month search interest timeline, momentum direction (rising / flat / declining), rising breakout queries, and top geographic regions for the idea's keywords
+- **Reddit Search** — pulls the most relevant community discussions to surface organic pain points and user interest signals
+- **Search Citations** — scans the web for competitor pages and market overviews, used to identify and describe competing products
+- **YouTube Search** — finds relevant video content to measure audience awareness and content demand in the space
+
+All four calls are made concurrently. Results feed directly into the algorithmic scorer — no secondary LLM call needed.
+
+---
+
 ## What it does
 
 The platform combines Google Trends intelligence, competitor research, Reddit signals, and YouTube content analysis to generate structured startup validation reports. Founders get clear answers to:
@@ -53,16 +76,6 @@ The report includes:
 ![Actionable next steps](images/recommendations.png)
 
 Numbered next-step cards covering go-to-market strategy, positioning, differentiation angles, and product focus — each grounded in the evidence gathered.
-
----
-
-## Tech stack
-
-- **Framework** — Next.js 16 App Router
-- **Styling** — Tailwind CSS v4, Framer Motion
-- **Data** — [Anakin API](https://anakin.io) (Google Trends Wire, Reddit search, competitor citations, YouTube search)
-- **Scoring** — algorithmic, evidence-based (no LLM in the critical path)
-- **Deployment** — Vercel
 
 ---
 

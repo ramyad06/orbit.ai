@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RefreshCw, TriangleAlert } from 'lucide-react';
+import { ArrowLeft, RefreshCw, TriangleAlert } from 'lucide-react';
 import { toast } from 'sonner';
 
 import type { ValidationReport } from '@/lib/types';
@@ -116,12 +116,18 @@ export default function DashboardClient() {
       {/* Top bar */}
       <header className="sticky top-0 z-30 border-b border-zinc-200 bg-white/90 backdrop-blur-sm shadow-sm">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">
-          <button
-            onClick={() => router.push('/')}
-            className="text-lg tracking-tight text-zinc-900 font-black"
-          >
-            orbit.ai
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => router.push('/')}
+              className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-600 shadow-sm transition hover:border-zinc-300 hover:text-zinc-900"
+              aria-label="Back to home"
+            >
+              <ArrowLeft className="size-3.5" />
+              New idea
+            </button>
+            <span className="text-zinc-300">|</span>
+            <span className="text-base tracking-tight text-zinc-900 font-black">orbit.ai</span>
+          </div>
           <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-[11px] font-medium uppercase tracking-widest text-zinc-500">
             <span
               className={cn(
